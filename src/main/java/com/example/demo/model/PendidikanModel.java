@@ -20,6 +20,7 @@ public class PendidikanModel {
 
     private String status;
 
+    @ManyToOne
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     private MuridModel idMurid;
 
