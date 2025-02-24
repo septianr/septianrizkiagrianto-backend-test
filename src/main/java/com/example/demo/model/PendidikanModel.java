@@ -12,7 +12,7 @@ import java.sql.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PendidikanModel {
+public class PendidikanModel extends AuditTrail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,9 +21,8 @@ public class PendidikanModel {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "idMurid", referencedColumnName = "id", nullable = false)
     private MuridModel idMurid;
 
-    private Date time_create;
 
 }
