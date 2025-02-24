@@ -36,6 +36,16 @@ public class SiswaController {
         return ResponseEntity.ok(siswaService.createMurid(req));
     }
 
+    @PostMapping("/update")
+    public ResponseEntity<?> UpdateSiswa(@RequestBody MuridDTO req ){
+        // tampilkan semua data siswa
+        try {
+            return ResponseEntity.ok(siswaService.updateMurid(req));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Data Tidak Ditemukan");
+        }
+    }
+
 
 
 
