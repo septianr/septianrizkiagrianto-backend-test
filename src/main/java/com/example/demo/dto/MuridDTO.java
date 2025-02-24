@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class MuridDTO {
 
+    private int id;
     private String name;
 }

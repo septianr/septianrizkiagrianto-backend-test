@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SiswaService {
@@ -39,6 +40,18 @@ public class SiswaService {
         murid.setName(req.getName());
         muridRepository.save(murid);
         return murid;
+    }
+
+    public MuridModel updateMurid(MuridDTO req) throws Exception {
+
+        Optional<MuridModel> cekData = muridRepository.findById((long)req.getId());
+        if(cekData.isEmpty()){
+            throw new Exception("Data Tidak Ditemukan");
+        }
+        cekData.get().setDate(LocalDateTime.now());
+        cekData.get().setName(req.getName());
+        muridRepository.save(cekData.get());
+        return cekData.get();
     }
 
 }
